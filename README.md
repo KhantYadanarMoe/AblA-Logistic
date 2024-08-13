@@ -31,19 +31,19 @@ AlbA_Logistic is an ecommerce website built with HTML, CSS, Bootstrap, Javascrip
 
 #Usage
 
-Visit the home page at "http://127.0.0.1:8000"  
-Visit the about us page at "http://127.0.0.1:8000/about" to know more about the company
-Visit the products page at "http://127.0.0.1:8000/products" to see products
-Visit the contact us page at "http://127.0.0.1:8000/contact" to contact to the admin
-Visit the user-pf page at "http://127.0.0.1:8000/user-info" 
-Visit the wishlist page at "http://127.0.0.1:8000/wishlist" to see the products you added to wishlist
-Visit the order-history page at "http://127.0.0.1:8000/order-history" to see all of your orders
+- Visit the home page at "http://127.0.0.1:8000"  
+- Visit the about us page at "http://127.0.0.1:8000/about" to know more about the company
+- Visit the products page at "http://127.0.0.1:8000/products" to see products
+- Visit the contact us page at "http://127.0.0.1:8000/contact" to contact to the admin
+- Visit the user-pf page at "http://127.0.0.1:8000/user-info" 
+- Visit the wishlist page at "http://127.0.0.1:8000/wishlist" to see the products you added to wishlist
+- Visit the order-history page at "http://127.0.0.1:8000/order-history" to see all of your orders
 
-Visit the admin dashboard page at "http://127.0.0.1:8000/admin" 
-Visit the products page at "http://127.0.0.1:8000/admin/products" to manage products
-Visit the orders page at "http://127.0.0.1:8000/admin/orders" to manage orders
-Visit the users page at "http://127.0.0.1:8000/admin/users" to see and search users
-Visit the contacts page at "http://127.0.0.1:8000/admin/contacts" to manage contact messages
+- Visit the admin dashboard page at "http://127.0.0.1:8000/admin" 
+- Visit the products page at "http://127.0.0.1:8000/admin/products" to manage products
+- Visit the orders page at "http://127.0.0.1:8000/admin/orders" to manage orders
+- Visit the users page at "http://127.0.0.1:8000/admin/users" to see and search users
+- Visit the contacts page at "http://127.0.0.1:8000/admin/contacts" to manage contact messages
 
 
 # Admin Access
