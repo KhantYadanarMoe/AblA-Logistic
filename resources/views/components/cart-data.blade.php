@@ -127,7 +127,7 @@
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
         const quantityDecreaseButtons = document.querySelectorAll('.quantity-decrease');
         const quantityIncreaseButtons = document.querySelectorAll('.quantity-increase');
         const quantityInputs = document.querySelectorAll('.quantity');
