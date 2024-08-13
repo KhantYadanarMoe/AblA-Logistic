@@ -1,11 +1,11 @@
 # AblA-Logistic
 
-##Description 
+# Description
 
 - AlbA_Logistic is an ecommerce website built with HTML, CSS, Bootstrap, Javascript, PHP, and Laravel. It allows users to browse products, add products to cart, order, add products to wishlist, contact to the owner, check order-histories and order-process. The admin panel provides functionality for managing products, orders, contact-messages and users.
 
 
-## Installation
+# Installation
 
 1. Clone the repository:
    git clone https://github.com/KhantYadanarMoe/AblA-Logistic.git
@@ -30,7 +30,7 @@
    php artisan serve
 
 
-#Usage
+# Usage
 
 - Visit the home page at "http://127.0.0.1:8000"  
 - Visit the about us page at "http://127.0.0.1:8000/about" to know more about the company
