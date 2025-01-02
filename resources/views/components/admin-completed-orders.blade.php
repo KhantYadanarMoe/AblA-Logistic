@@ -27,7 +27,7 @@
         </ul>
         @foreach ($completeds as $completed)
           
-          <a href="/admin/orders/{{$completed->c_id}}/completed/details" class="orders-link" style="opacity: 0.5">
+          <a href="/admin/orders/{{$completed->id}}/completed/details" class="orders-link" style="opacity: 0.5">
             <ul class="orders-row">
               <li class="order-no">{{$completed->c_id}}</li>
               <li class="orderId">{{$completed->order_no}}</li>

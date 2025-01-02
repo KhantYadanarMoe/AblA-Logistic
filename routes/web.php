@@ -57,7 +57,7 @@ Route::middleware('can:admin')->group(function () {
 
     Route::get('/admin/orders/completed', [AdminController::class, 'completedOrder']);
     Route::post('/admin/order/{order:id}/completed', [AdminController::class, 'deliverOrder']);
-    Route::get('admin/orders/{completed:c_id}/completed/details', [AdminController::class, 'showCompletedOrderDetail']);
+    Route::get('admin/orders/{completed:id}/completed/details', [AdminController::class, 'showCompletedOrderDetail']);
 });
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

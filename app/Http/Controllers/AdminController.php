@@ -118,15 +118,11 @@ class AdminController extends Controller
         ]);
     }
 
-    public function order($orderId)
-    {
-        // Fetch the order details based on the order_id
+    public function order($orderId){
         $order = Order::findOrFail($orderId);
 
-        // Fetch the order items associated with the order_id
         $items = OrderItem::where('order_id', $orderId)->get();
 
-        // Pass the data to the view
         return view('admin.order-details', compact('order', 'items'));
     }
 
@@ -136,51 +132,44 @@ class AdminController extends Controller
         ]);
     }
 
-    public function deliverOrder(Request $request, $orderId)
-{
-    DB::transaction(function() use ($orderId) {
-        // Fetch the order and related order items
-        $order = Order::findOrFail($orderId);
-        $orderItems = $order->orderItems;
+    public function deliverOrder(Request $request, $orderId){
+        DB::transaction(function() use ($orderId) {
+            $order = Order::findOrFail($orderId);
+            $orderItems = $order->orderItems;
 
-        // Create a new completed order
-        $completedOrder = OrderCompleted::create([
-            'c_id'=>$order->id,
-            'user_id' => $order->user_id,
-            'order_no' => $order->order_no,
-            'total' => $order->total,
-            'phone' => $order->phone,
-            'address' => $order->address,
-            'msg' => $order->msg,
-            'created_at' => $order->created_at,
-            'updated_at' => $order->updated_at,
-        ]);
-
-        // Transfer each order item to the completed order details table
-        foreach ($orderItems as $item) {
-            CompletedOrderDetail::create([
-                'completed_order_id' => $completedOrder->id,
-                'thumbnail' => $item->thumbnail,
-                'name' => $item->name,
-                'quantity' => $item->quantity,
-                'price' => $item->price,
+            $completedOrder = OrderCompleted::create([
+                'c_id'=>$order->id,
+                'user_id' => $order->user_id,
+                'order_no' => $order->order_no,
+                'total' => $order->total,
+                'phone' => $order->phone,
+                'address' => $order->address,
+                'msg' => $order->msg,
+                'created_at' => $order->created_at,
+                'updated_at' => $order->updated_at,
             ]);
-        }
 
-        // Delete the original order and order items
-        $order->orderItems()->delete();
-        $order->delete();
-    });
+            foreach ($orderItems as $item) {
+                CompletedOrderDetail::create([
+                    'completed_order_id' => $completedOrder->id,
+                    'thumbnail' => $item->thumbnail,
+                    'name' => $item->name,
+                    'quantity' => $item->quantity,
+                    'price' => $item->price,
+                ]);
+            }
 
-    return redirect('/admin/orders/completed');
-}
+            // Delete the original order and order items
+            $order->orderItems()->delete();
+            $order->delete();
+        });
 
-    public function showCompletedOrderDetail($c_id)
-    {
-        // Fetch the completed order details using c_id
-        $order = OrderCompleted::where('c_id', $c_id)->with('completedOrderDetails')->firstOrFail();
+        return redirect('/admin/orders/completed');
+    }
 
-        // Pass the data to the view
+    public function showCompletedOrderDetail($id){
+        $order = OrderCompleted::where('id', $id)->with('completedOrderDetails')->firstOrFail();
+
         return view('admin.completed-order-details', compact('order'));
     }
 }

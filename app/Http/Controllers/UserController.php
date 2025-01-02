@@ -98,7 +98,6 @@ class UserController extends Controller
             session()->put('cartCount', 1);
         }
 
-
         return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
 
@@ -148,7 +147,6 @@ class UserController extends Controller
             'msg' => $request->msg,
         ]);
 
-        // Move cart items to order items
         foreach ($request->quantities as $cartId => $item) {
             OrderItem::create([
                 'order_id' => $order->id,
@@ -158,11 +156,9 @@ class UserController extends Controller
                 'quantity' => $item['quantity'],
             ]);
 
-            // Optionally, delete the cart item
             Cart::where('user_id', $userId)->where('id', $cartId)->delete();
         }
 
-        // Reset cart count in the session
         session(['cartCount' => 0]);
 
         // Return response
